@@ -7,13 +7,14 @@ export function FluidCanvas() {
 
   useEffect(() => {
     const canvas = canvasRef.current!;
-    const gl = canvas.getContext("webgl", {
+    const glOrNull = canvas.getContext("webgl", {
       alpha: true,
       premultipliedAlpha: false,
       antialias: false,
       preserveDrawingBuffer: false,
     });
-    if (!gl) return;
+    if (!glOrNull) return;
+    const gl: WebGLRenderingContext = glOrNull;
 
     const ext = {
       halfFloat: gl.getExtension("OES_texture_half_float"),
