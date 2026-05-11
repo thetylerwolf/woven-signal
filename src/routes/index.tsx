@@ -1,26 +1,99 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { FluidCanvas } from "@/components/FluidCanvas";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "Woven Signal — Crypto Infrastructure Consultancy" },
+      {
+        name: "description",
+        content:
+          "Woven Signal is a crypto infrastructure consultancy. Architecture, validators, and protocol engineering for teams operating at the edge of the network.",
+      },
+      { property: "og:title", content: "Woven Signal" },
+      {
+        property: "og:description",
+        content: "Crypto infrastructure consultancy.",
+      },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <main className="relative min-h-screen overflow-hidden bg-black text-foreground">
+      <FluidCanvas />
+
+      {/* gradient scrims for legibility */}
+      <div
+        className="pointer-events-none fixed inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.85) 100%)",
+        }}
+      />
+
+      <div className="relative z-10 flex min-h-screen flex-col">
+        {/* top bar */}
+        <header className="flex items-center justify-between px-6 pt-6 sm:px-10 sm:pt-8">
+          <div className="flex items-center gap-2.5">
+            <div className="h-2 w-2 rounded-full bg-white/90 shadow-[0_0_12px_rgba(255,255,255,0.8)]" />
+            <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-white/70">
+              Woven Signal
+            </span>
+          </div>
+          <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-white/40">
+            v0 · 2026
+          </span>
+        </header>
+
+        {/* hero */}
+        <section className="flex flex-1 flex-col items-start justify-center px-6 pb-24 sm:px-10 md:px-16">
+          <div className="max-w-3xl">
+            <p className="mb-6 font-mono text-[11px] uppercase tracking-[0.32em] text-white/50">
+              Crypto infrastructure consultancy
+            </p>
+            <h1 className="text-balance text-5xl font-light leading-[1.02] tracking-tight text-white sm:text-7xl md:text-8xl">
+              Signal,
+              <br />
+              <span className="italic text-white/70">woven</span> through
+              <br />
+              the network.
+            </h1>
+            <p className="mt-8 max-w-xl text-base font-light leading-relaxed text-white/60 sm:text-lg">
+              We architect, operate, and harden the infrastructure that carries
+              value on-chain — for protocols, validators, and the teams
+              building what comes next.
+            </p>
+
+            <div className="mt-12 flex flex-wrap items-center gap-4">
+              <a
+                href="mailto:pathway@wovensignal.xyz"
+                className="group relative inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-mono text-[12px] uppercase tracking-[0.22em] text-white backdrop-blur-md transition-all hover:border-white/60 hover:bg-white/10"
+              >
+                <span>Open a pathway</span>
+                <span className="transition-transform group-hover:translate-x-0.5">
+                  →
+                </span>
+              </a>
+              <span className="font-mono text-[11px] tracking-[0.18em] text-white/40">
+                pathway@wovensignal.xyz
+              </span>
+            </div>
+          </div>
+        </section>
+
+        {/* footer */}
+        <footer className="flex items-center justify-between px-6 pb-6 sm:px-10 sm:pb-8">
+          <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/35">
+            Move the cursor
+          </span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/35">
+            © Woven Signal
+          </span>
+        </footer>
+      </div>
+    </main>
+  );
 }
