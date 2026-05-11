@@ -55,11 +55,7 @@ function Index() {
               Crypto infrastructure consultancy
             </p>
             <h1 className="text-balance text-5xl font-light leading-[1.02] tracking-tight text-white sm:text-7xl md:text-8xl">
-              Signal,
-              <br />
-              <span className="italic text-white/70">woven</span> through
-              <br />
-              the network.
+              Woven Signal.
             </h1>
             <p className="mt-8 max-w-xl text-base font-light leading-relaxed text-white/60 sm:text-lg">
               We architect, operate, and harden the infrastructure that carries
@@ -72,7 +68,7 @@ function Index() {
                 href="mailto:pathway@wovensignal.xyz"
                 className="group relative inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/5 px-6 py-3 font-mono text-[12px] uppercase tracking-[0.22em] text-white backdrop-blur-md transition-all hover:border-white/60 hover:bg-white/10"
               >
-                <span>Open a pathway</span>
+                <span>Contact us</span>
                 <span className="transition-transform group-hover:translate-x-0.5">
                   →
                 </span>
@@ -85,10 +81,7 @@ function Index() {
         </section>
 
         {/* footer */}
-        <footer className="flex items-center justify-between px-6 pb-6 sm:px-10 sm:pb-8">
-          <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/35">
-            Move the cursor
-          </span>
+        <footer className="flex items-center justify-end px-6 pb-6 sm:px-10 sm:pb-8">
           <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/35">
             © Woven Signal
           </span>

@@ -368,7 +368,7 @@ export function FluidCanvas() {
 
       // Inject from pointer
       if (pointer.moved) {
-        splat(pointer.x, pointer.y, pointer.dx * 1500, pointer.dy * 1500, pointer.color);
+        splat(pointer.x, pointer.y, pointer.dx * 600, pointer.dy * 600, pointer.color);
         pointer.moved = false;
         pointer.dx *= 0.5;
         pointer.dy *= 0.5;
@@ -377,8 +377,8 @@ export function FluidCanvas() {
         autoT = 0;
         const ax = 0.2 + Math.random() * 0.6;
         const ay = 0.2 + Math.random() * 0.6;
-        const adx = (Math.random() - 0.5) * 800;
-        const ady = (Math.random() - 0.5) * 800;
+        const adx = (Math.random() - 0.5) * 300;
+        const ady = (Math.random() - 0.5) * 300;
         splat(ax, ay, adx, ady, pickColor());
       }
 
@@ -394,7 +394,7 @@ export function FluidCanvas() {
       gl.uniform2f(vorticityProg.uniforms["uTexel"], velocity.read.texel[0], velocity.read.texel[1]);
       gl.uniform1i(vorticityProg.uniforms["uVelocity"], 0);
       gl.uniform1i(vorticityProg.uniforms["uCurl"], 1);
-      gl.uniform1f(vorticityProg.uniforms["uCurlAmount"], 30);
+      gl.uniform1f(vorticityProg.uniforms["uCurlAmount"], 8);
       gl.uniform1f(vorticityProg.uniforms["uDt"], dt);
       gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, velocity.read.tex);
       gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, curlFBO.tex);
@@ -435,7 +435,7 @@ export function FluidCanvas() {
       gl.uniform1i(advectionProg.uniforms["uVelocity"], 0);
       gl.uniform1i(advectionProg.uniforms["uSource"], 0);
       gl.uniform1f(advectionProg.uniforms["uDt"], dt);
-      gl.uniform1f(advectionProg.uniforms["uDissipation"], 0.998);
+      gl.uniform1f(advectionProg.uniforms["uDissipation"], 0.96);
       gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, velocity.read.tex);
       blit(velocity.write); velocity.swap();
 
@@ -443,7 +443,7 @@ export function FluidCanvas() {
       gl.uniform2f(advectionProg.uniforms["uTexel"], dye.read.texel[0], dye.read.texel[1]);
       gl.uniform1i(advectionProg.uniforms["uVelocity"], 0);
       gl.uniform1i(advectionProg.uniforms["uSource"], 1);
-      gl.uniform1f(advectionProg.uniforms["uDissipation"], 0.992);
+      gl.uniform1f(advectionProg.uniforms["uDissipation"], 0.97);
       gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, velocity.read.tex);
       gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, dye.read.tex);
       blit(dye.write); dye.swap();
