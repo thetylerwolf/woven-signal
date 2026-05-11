@@ -62,7 +62,7 @@ function App() {
 
         <footer className="flex items-center justify-end px-6 pb-6 sm:px-10 sm:pb-8">
           <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/35">
-            © Woven Signal
+            © Path-Way AB - Org. nr 559477-0124
           </span>
         </footer>
       </div>
